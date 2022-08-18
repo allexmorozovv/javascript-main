@@ -6,13 +6,13 @@ type AddressType={
     number?:number
     street:StreetType
 }
- type HousesType={
+ export type HousesType={
     buildedAt:number
     repaired:boolean
     address:AddressType
 }
 
-type GovernmentBuildingsType={
+ export type GovernmentBuildingsType={
     type:"HOSPITAL"|"FIRE-STATION"
     budget:number
     staffCount:number

@@ -14,7 +14,7 @@ type AddressType = {
     city: LocalCityType
 }
 
-type StudentType = {
+export type StudentType = {
     id: number
     name: string
     age: number
@@ -24,7 +24,7 @@ type StudentType = {
 }
 
 
-const student: StudentType = {
+export const student: StudentType = {
     id: 1,
     name: 'Alex',
     age: 44,
