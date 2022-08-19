@@ -1,4 +1,4 @@
-import {CityType} from "./02.02";
+import {bigStaffBuidings, CityType} from "./02.02";
 
 let city: CityType;
 
@@ -98,4 +98,11 @@ test('test city should contains hospital and fire station', () => {
     expect(city.governmentBuildings[1].budget).toBe(500000);
     expect(city.governmentBuildings[1].staffCount).toBe(1000);
     expect(city.governmentBuildings[1].address.street.title).toBe("South Str");
+})
+
+test('get buildings with big staff',()=>{
+    let buildings = bigStaffBuidings(city.governmentBuildings,500)
+
+    expect(buildings.length).toBe(1)
+    expect(buildings[0].type).toBe('FIRE-STATION')
 })

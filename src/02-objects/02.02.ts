@@ -24,3 +24,7 @@ export type CityType={
     governmentBuildings:Array<GovernmentBuildingsType>
     citizensNumber:number
 }
+
+export const bigStaffBuidings = (building:Array<GovernmentBuildingsType>,number:number) => {
+return building.filter(b=>b.staffCount>number)
+}
