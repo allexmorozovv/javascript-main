@@ -1,4 +1,4 @@
-import {bigStaffBuidings, CityType, nameOfCityStreet} from "./02.02";
+import { bigStaffBuildings, CityType, nameOfCityStreet} from "./02.02";
 
 let city: CityType;
 
@@ -7,6 +7,7 @@ beforeEach(() => {
         title: "New York",
         houses: [
             {
+                id:1,
                 buildedAt: 2012,
                 repaired: false,
                 address: {
@@ -17,6 +18,7 @@ beforeEach(() => {
                 }
             },
             {
+                id:2,
                 buildedAt: 2008,
                 repaired: false,
                 address: {
@@ -27,6 +29,7 @@ beforeEach(() => {
                 }
             },
             {
+                id:3,
                 buildedAt: 2020,
                 repaired: false,
                 address: {
@@ -101,7 +104,7 @@ test('test city should contains hospital and fire station', () => {
 })
 
 test('get buildings with big staff', () => {
-    let buildings = bigStaffBuidings(city.governmentBuildings, 500)
+    let buildings = bigStaffBuildings(city.governmentBuildings, 500)
 
     expect(buildings.length).toBe(1)
     expect(buildings[0].type).toBe('FIRE-STATION')
