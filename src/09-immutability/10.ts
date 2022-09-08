@@ -10,6 +10,7 @@ export type UserType = {
 }
 
 export type CompanyType = { companies: Array<{ id: number, title: string }> }
+type CompanyType2 ={id:number,title:string}
 
 export type UserWithLaptopType = UserType & {
     laptop: LaptopType
@@ -43,5 +44,16 @@ export const removeSkill = (u: UserWithSkillsType, rS: string) => ({
 export const updateCompany = (u: CompanyType, companyID: number, newTitle: string) => ({
     ...u, companies: u.companies.map(c => c.id === companyID ? {...c, title: newTitle} : c)
 })
+
+export  const changeCompanyTitle =(companies:{[key:string]:Array<CompanyType2>},
+                                   userName:string,
+                                   companyID:number,
+                                   newTitle:string)=>{
+let companyCopy={...companies}
+    companyCopy[userName]=companyCopy[userName].map(c=>c.id===companyID ? {...c,title: newTitle}:c)
+
+
+    return companyCopy;
+}
 
 

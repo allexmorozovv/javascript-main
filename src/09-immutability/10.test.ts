@@ -7,7 +7,7 @@ import {
     SkillsType,
     UserType,
     UserWithLaptopType,
-    UserWithSkillsType
+    UserWithSkillsType, changeCompanyTitle
 } from "./10";
 
 
@@ -96,6 +96,26 @@ test('add company test', () => {
 
     expect(uCopy.companies.length).toBe( 2)
     expect(uCopy.companies[0].title).toBe('Google')
-    // expect(uCopy.companies[2]).toBe( 3)
+})
+test('change company test', () => {
+    const user: UserWithSkillsType = {
+        name: 'Alex',
+        hair: 32,
+        address: {
+            title: 'Moscow'
+        },
 
+        skills:['html', 'css', 'js'],
+    }
+
+    let companies = {
+        'Alex':[{id:1,title:'Epam'},{id:2, title: 'Ozon'}],
+        'Kris':[{id:1,title:'Ya'}]
+    }
+
+   const copy= changeCompanyTitle(companies,'Alex',1,'Google')
+
+    expect(copy['Alex']).not.toBe(companies['Alex'])
+    expect(copy['Kris']).toBe(companies['Kris'])
+    expect(copy['Alex'][0].title).toBe('Google')
 })
